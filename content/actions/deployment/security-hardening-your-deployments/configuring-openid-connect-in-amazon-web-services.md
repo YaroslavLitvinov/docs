@@ -26,7 +26,6 @@ This guide explains how to configure AWS to trust {% data variables.product.prod
 {% data reusables.actions.oidc-link-to-intro %}
 
 {% data reusables.actions.oidc-security-notice %}
-
 ## Adding the identity provider to AWS
 
 To add the {% data variables.product.prodname_dotcom %} OIDC provider to IAM, see the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html).
@@ -43,7 +42,7 @@ By default, the validation only includes the audience (`aud`) condition, so you 
 ```json{:copy}
 "Condition": {
   "StringEquals": {
-    "token.actions.githubusercontent.com:aud": "https://github.com/octo-org",
+    "token.actions.githubusercontent.com:aud": "sts.amazonaws.com",
     "token.actions.githubusercontent.com:sub": "repo:octo-org/octo-repo:ref:refs/heads/octo-branch"
   }
 }
